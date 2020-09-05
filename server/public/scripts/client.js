@@ -4,7 +4,7 @@ function onReady() {
     console.log('in onReady');
     $(document).on('click', '#equalsBtn', addEquation);
     $(document).on('click', 'clearBtn', clearInput);
-    //getEquation();
+    getEquation();
 } // end onReady
 
 function addEquation() {
@@ -12,7 +12,8 @@ function addEquation() {
     const equationToSend = {
         firstNum: $('#firstNumIn').val(),
         operator: $('#operatorIn').val(),
-        secondNum: $('#secondNumIn').val()
+        secondNum: $('#secondNumIn').val(),
+        hidden: $('hiddenIn').val()
     }
     console.log('sending', equationToSend);
 
@@ -43,7 +44,8 @@ function getEquation() {
        <li>
         ${response[i].firstNum}
         ${response[i].operator}
-        ${response[i].secondNum}=
+        ${response[i].secondNum} &nbsp=
+        ${response[i].hidden}
        </li>`);
             }
         }).catch(function(err) {
