@@ -13,7 +13,6 @@ function addEquation() {
         firstNum: $('#firstNumIn').val(),
         operator: $('#operatorIn').val(),
         secondNum: $('#secondNumIn').val(),
-        hidden: $('hiddenIn').val()
     }
     console.log('sending', equationToSend);
 
@@ -45,7 +44,7 @@ function getEquation() {
         ${response[i].firstNum}
         ${response[i].operator}
         ${response[i].secondNum} &nbsp=
-        ${response[i].hidden}
+        ${response[i].solution}
        </li>`);
             }
         }).catch(function(err) {

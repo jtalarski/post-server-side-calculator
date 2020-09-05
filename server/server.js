@@ -17,36 +17,17 @@ const port = 3000;
 app.get('/calculator', (req, res) => {
         console.log('/calculator GET hit on server');
         res.send(calculations);
-    }) // end /inventory GET
+    }) // end  GET
 
 
 
-app.post('/calculator', (req, res) => {
+app.post('/calculator', function(req, res) {
     console.log('I got', req.body);
-    // here is where it breaks
-    /*
-    data = req.body
-    let equalsTo;
+    let newCalculation = req.body
 
-    function calcAttempt(data) {
-
-        for (equation of data) {
-            if (operator === '+') {
-                equalsTo = firstNum + secondNum;
-            } else if (operator === '-') {
-                equalsTo = firstNum = secondNum;
-            } else if (operator === 'x') {
-                equalsTo = firstNum * secondNum;
-            } else if (operator === '-') {
-                equalsTo = firstNum / secondNum;
-            }
-        } // end for loop
-
-    } // end calcAttempt
-    */
-    calculations.unshift(req.body);
+    calculations.unshift(newCalculation);
     res.sendStatus(200);
-})
+});
 
 
 app.listen(port, () => {

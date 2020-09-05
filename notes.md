@@ -10,11 +10,11 @@ To DO
     - + - * /
     - submit button called =
     - clear button called C
-[] Create object to bundle inputs
-[] Create ajax POST to 
-[] Create node Get to
+[x] Create object to bundle inputs
+[x] Create ajax POST to 
+[x] Create node Get to
 [] function getCalculation
-[] function clearInputFields
+[x] function clearInputFields
     - empty inputs
-[] function historyOutput
+[x] function historyOutput
 
