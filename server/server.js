@@ -13,19 +13,19 @@ app.use(bodyParser.urlencoded({ extended: true }));
 let calculations = [];
 const port = 3000;
 
-// routes
-app.post('/equation', (req, res) => {
-        console.log('made it to the server');
-        //inventory.push(req);
-        res.sendStatus(201);
-    }) // end /inventory POST
+//routes
+app.get('/calculator', (req, res) => {
+        console.log('/calculator GET hit on server');
+        res.send(calculations);
+    }) // end /inventory GET
 
-app.get('/equation', (req, res) => {
-    console.log(req);
-    inventory.split(reg);
+app.post('/calculator', (req, res) => {
+    console.log('I got', req.body);
+    calculations.unshift(req.body);
     res.sendStatus(201);
 })
 
-app.listen(port, function() {
-    console.log("listening at 3000");
-});
+
+app.listen(port, () => {
+        console.log('server is up:', port);
+    }) // end server up

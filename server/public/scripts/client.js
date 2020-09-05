@@ -2,8 +2,9 @@ $(document).ready(onReady);
 
 function onReady() {
     console.log('in onReady');
-    $(document).on('click', '#equalsBtn', addEquation)
-    $(document).on('click', 'clearBtn', clearInput)
+    $(document).on('click', '#equalsBtn', addEquation);
+    $(document).on('click', 'clearBtn', clearInput);
+    //getEquation();
 } // end onReady
 
 function addEquation() {
@@ -13,41 +14,43 @@ function addEquation() {
         operator: $('#operatorIn').val(),
         secondNum: $('#secondNumIn').val()
     }
+    console.log('sending', equationToSend);
+
     $.ajax({
-            method: 'POST',
-            url: '/equation',
-            data: equationToSend
-        }).then(function(response) {
-            console.log('back from the server with', response)
-            getEquation();
-        }).catch(function(err) {
-            alert('something went wrong');
-            console.log(err);
-        }) // end ajax
-} // end equationToSend
+        method: 'POST',
+        url: '/calculator',
+        data: equationToSend
+    }).then(function(response) {
+        console.log('back from the server with', response);
+        getEquation()
+    }).catch(function(err) {
+        alert('Houston, we have a problem in ajax POST');
+        console.log(err);
+    })
+}
 
 function getEquation() {
     console.log('in getEquation');
-    let el = $('#calculationsOut')
+    let el = $('#calculationsOut');
     el.empty();
     $.ajax({
             method: 'GET',
-            url: '/equation'
+            url: '/calculator'
         }).then(function(response) {
-            console.log(' back from GET', response);
-            for (let i = 0; i < response.length; i++) {
-                el.append(`<li>
-            ${ response[i].firstNum}
-            ${ response[i].operator}
-            ${ response[i].secondNum}=
-            ${ response[1].equals}
-            </li>`)
-            } // end for
+            console.log('back from GET:', response)
+            for (i = 0; i < response.length; i++) {
+                el.append(`
+       <li>
+        ${response[i].firstNum}
+        ${response[i].operator}
+        ${response[i].secondNum}=
+       </li>`);
+            }
         }).catch(function(err) {
             console.log(err);
-            alert('nope');
+            alert('Houston, we have a problem in ajax GET');
         }) // end AJAX
-} // end getEquation
+}
 
 
 function clearInput() {
