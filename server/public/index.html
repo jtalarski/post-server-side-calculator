@@ -14,11 +14,13 @@
 <body>
     <div id="mathInput">
         <input type="number" id="firstNum" placeholder="0">
-        <button id="addBtn">+</button>
-        <button id="subtractBtn">-</button>
-        <button id="multiplyBtn">*</button>
-        <button id="divideBtn">/</button>
-        <input type="number" id="firstNum" placeholder="0">
+        <select id="operator">
+            <option value="add">+</option>
+            <option value="sub">-</option>
+            <option value="mul">&#215</option>
+            <option value="divide">&#247</option>
+        </select>
+        <input type="number" id="secondNum" placeholder="0">
         <button id="submitBtn">=</button>
         <button id="clearBtn">C</button>
     </div>
