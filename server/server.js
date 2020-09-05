@@ -24,6 +24,7 @@ app.get('/calculator', (req, res) => {
 app.post('/calculator', (req, res) => {
     console.log('I got', req.body);
     // here is where it breaks
+    /*
     data = req.body
     let equalsTo;
 
@@ -42,8 +43,9 @@ app.post('/calculator', (req, res) => {
         } // end for loop
 
     } // end calcAttempt
+    */
     calculations.unshift(req.body);
-    res.sendStatus(201);
+    res.sendStatus(200);
 })
 
 
