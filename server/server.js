@@ -15,11 +15,16 @@ const port = 3000;
 
 // routes
 app.post('/equation', (req, res) => {
-        console.log(req.body);
-        inventory.push(req.body);
+        console.log('made it to the server');
+        //inventory.push(req);
         res.sendStatus(201);
     }) // end /inventory POST
 
+app.get('/equation', (req, res) => {
+    console.log(req);
+    inventory.split(reg);
+    res.sendStatus(201);
+})
 
 app.listen(port, function() {
     console.log("listening at 3000");

@@ -2,8 +2,8 @@ $(document).ready(onReady);
 
 function onReady() {
     console.log('in onReady');
-    $(document).on('click', '#egualsBtn', addEquation)
-    $(document).on('click', 'clearBtn', )
+    $(document).on('click', '#equalsBtn', addEquation)
+    $(document).on('click', 'clearBtn', clearInput)
 } // end onReady
 
 function addEquation() {
@@ -48,3 +48,8 @@ function getEquation() {
             alert('nope');
         }) // end AJAX
 } // end getEquation
+
+
+function clearInput() {
+    console.log('in clearInput');
+}
