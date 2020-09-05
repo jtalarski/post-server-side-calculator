@@ -1,13 +1,21 @@
+// requires
 const express = require('express');
 const bodyParser = require('body-parser');
+const app = express();
 
 console.log('in server js');
 
-const app = express();
+// Uses
 app.use(express.static(`server/public`));
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// Globals
+let calculations = [];
 
+app.post('/equation', req, res) => {
+    console.log(req.body);
+    res.send('your equation here');
+}
 
 
 
