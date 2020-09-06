@@ -3,7 +3,7 @@ $(document).ready(onReady);
 function onReady() {
     console.log('in onReady');
     $(document).on('click', '#equalsBtn', addEquation);
-    $(document).on('click', 'clearBtn', clearInput);
+    $(document).on('click', '#clearBtn', clearInput);
     getEquation();
 } // end onReady
 
