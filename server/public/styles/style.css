@@ -1,5 +1,8 @@
 body {
-    background: olive;
+    background: dodgerblue;
+    width: 80%;
+    margin: auto;
+    text-align: center;
 }
 
 input {
@@ -8,4 +11,29 @@ input {
 
 #calculationsOut li:first {
     font-size: x-large;
+}
+
+ul {
+    list-style-type: none;
+}
+
+#solutionPar {
+    font: 1.5em;
+    border: 2px solid black;
+    width: 30px;
+    text-align: right;
+}
+
+ul> :first-child {
+    font: 1.5em
+}
+
+#mathOutput {
+    background-color: white;
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    background-color: white;
 }

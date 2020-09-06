@@ -1,5 +1,7 @@
 $(document).ready(onReady);
 
+let equationToSend = {}
+
 function onReady() {
     console.log('in onReady');
     $(document).on('click', '#equalsBtn', addEquation);
@@ -16,12 +18,17 @@ function clearInput() {
 
 function addEquation() {
     console.log('in addEquation');
-    const equationToSend = {
+    /*const*/
+    equationToSend = {
         firstNum: $('#firstNumIn').val(),
-        operator: $('#operatorIn').val(),
-        secondNum: $('#secondNumIn').val(),
+        operator: $('#operatorIn ').val(),
+        secondNum: $('#secondNumIn').val()
     }
     console.log('sending', equationToSend);
+    $('#firstNumIn').val('');
+    $('#secondNumIn').val('');
+    console.log('addEquation inputs clear');
+
 
     $.ajax({
         method: 'POST',
@@ -54,6 +61,7 @@ function getEquation() {
         ${response[i].solution}
        </li>`);
             }
+
         }).catch(function(err) {
             console.log(err);
             alert('Houston, we have a problem in ajax GET');

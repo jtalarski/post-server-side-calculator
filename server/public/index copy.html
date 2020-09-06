@@ -10,14 +10,17 @@
     <title>Wk 8 Challenge</title>
 </head>
 <h1>Server Side Calculator</h1>
+<p>Enter two numbers and select an operator</p>
 
 <body>
     <div id="mathInput">
         <input type="number" id="firstNumIn" placeholder="0">
-        <button data-operation='+'>+</button>
-        <button data-operation='-'>-</button>
-        <button data-operation='*'>*</button>
-        <button data-operation='/'>/</button>
+        <select id="operatorIn">
+            <option data-math='+' value="+">+</option>
+            <option data-math='-' value="-">-</option>
+            <option data-math='x' value="x">&#215</option>
+            <option data-math='/' value="/">&#247</option>
+        </select>
         <input type="number" id="secondNumIn" placeholder="0">
         <button id="equalsBtn">=</button>
         <button id="clearBtn">C</button>
