@@ -12,11 +12,7 @@ function clearInput() {
     $('#firstNumIn').val('');
     $('#operatorIn').val('');
     $('#secondNumIn').val('');
-}
-
-function newButton() {
-    console.log('in newButton');
-}
+} // end clearInput
 
 function addEquation() {
     console.log('in addEquation');
@@ -38,7 +34,7 @@ function addEquation() {
         alert('Houston, we have a problem in ajax POST');
         console.log(err);
     })
-}
+} // end addEquation
 
 function getEquation() {
     console.log('in getEquation');
@@ -62,4 +58,4 @@ function getEquation() {
             console.log(err);
             alert('Houston, we have a problem in ajax GET');
         }) // end AJAX
-}
+} // end getEquation

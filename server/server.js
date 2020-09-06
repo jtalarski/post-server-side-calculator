@@ -3,8 +3,6 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 
-console.log('in server js');
-
 // Uses
 app.use(express.static(`server/public`));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -21,15 +19,14 @@ app.get('/calculator', (req, res) => {
     }) // end  GET
 
 
-
 app.post('/calculator', (req, res) => {
     console.log('I got a request in app.post', req.body);
     let newCalculation = req.body;
-    console.log('Here is newCalculation', newCalculation);
-
+    console.log('Here is newCalculation', newCalculation)
 
     newCalcMethod(newCalculation);
-
+    // not sure why I needed or could call newCalcMethod twice
+    // but I could not get this method to work otherwise
     function newCalcMethod(newCalculation) {
         if (newCalculation.operator === '+') {
             calcSolution = Number(newCalculation.firstNum) + Number(newCalculation.secondNum);
@@ -44,11 +41,11 @@ app.post('/calculator', (req, res) => {
         }
         return calcSolution;
     }
-
+    // add new key/value pair to obejct and pass
     newCalculation.solution = calcSolution
     calculations.unshift(newCalculation);
     res.sendStatus(200);
-});
+}); // end POST
 
 
 app.listen(port, () => {
