@@ -3,55 +3,63 @@ $(document).ready(onReady);
 function onReady() {
     console.log('in onReady');
     $(document).on('click', '#equalsBtn', addEquation);
-    $(document).on('click', 'clearBtn', clearInput);
-    //getEquation();
+    $(document).on('click', '#clearBtn', clearInput);
+    getEquation();
 } // end onReady
+
+function clearInput() {
+    console.log('clear the inputs');
+    $('#firstNumIn').val('');
+    $('#operatorIn').val('');
+    $('#secondNumIn').val('');
+}
+
+function newButton() {
+    console.log('in newButton');
+}
 
 function addEquation() {
     console.log('in addEquation');
     const equationToSend = {
         firstNum: $('#firstNumIn').val(),
         operator: $('#operatorIn').val(),
-        secondNum: $('#secondNumIn').val()
+        secondNum: $('#secondNumIn').val(),
     }
+    console.log('sending', equationToSend);
+
     $.ajax({
-            url: '/calculator',
-            method: 'POST',
-            data: equationToSend
-        }).then(function(response) {
-            console.log('created new calculation', response)
-            getEquation();
-        }).catch(function(err) {
-            alert('something went wrong');
-            console.log(err);
-        }) // end ajax
-} // end equationToSend
+        method: 'POST',
+        url: '/calculator',
+        data: equationToSend
+    }).then(function(response) {
+        console.log('back from the server with', response);
+        getEquation()
+    }).catch(function(err) {
+        alert('Houston, we have a problem in ajax POST');
+        console.log(err);
+    })
+}
 
 function getEquation() {
     console.log('in getEquation');
-    let el = $('#calculationsOu')
+    let el = $('#calculationsOut');
     el.empty();
     $.ajax({
             method: 'GET',
             url: '/calculator'
         }).then(function(response) {
-            console.log(' back from GET', response);
-            for (let i = 0; i < response.length; i++) {
-                el.append(`<li>
-            ${ response[i].firstNum}
-            ${ response[i].operator}
-            ${ response[i].secondNum}=
-            ${ response[1].equals}
-            </li>`)
-            } // end for
+            console.log('back from GET:', response)
+            for (i = 0; i < response.length; i++) {
+                el.append(`
+       <li>
+        ${response[i].firstNum}
+        ${response[i].operator}
+        ${response[i].secondNum} &nbsp=
+        ${response[i].solution}
+       </li>`);
+            }
         }).catch(function(err) {
             console.log(err);
-            alert('nope');
-        }) //end AJAX
-
-} // end getEquation
-
-
-function clearInput() {
-    console.log('in clearInput');
+            alert('Houston, we have a problem in ajax GET');
+        }) // end AJAX
 }
