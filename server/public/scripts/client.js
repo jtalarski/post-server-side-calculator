@@ -7,6 +7,17 @@ function onReady() {
     getEquation();
 } // end onReady
 
+function clearInput() {
+    console.log('clear the inputs');
+    $('#firstNumIn').val('');
+    $('#operatorIn').val('');
+    $('#secondNumIn').val('');
+}
+
+function newButton() {
+    console.log('in newButton');
+}
+
 function addEquation() {
     console.log('in addEquation');
     const equationToSend = {
@@ -51,9 +62,4 @@ function getEquation() {
             console.log(err);
             alert('Houston, we have a problem in ajax GET');
         }) // end AJAX
-}
-
-
-function clearInput() {
-    console.log('in clearInput');
 }
