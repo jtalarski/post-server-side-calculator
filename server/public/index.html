@@ -15,17 +15,16 @@
 <body>
     <div id="mathInput">
         <input type="number" id="firstNumIn" placeholder="0">
-        <select id="operatorIn" label: 'Select'>
-            <option data-math='+' value="+">+</option>
-            <option data-math='-' value="-">-</option>
-            <option data-math='x' value="x">&#215</option>
-            <option data-math='/' value="/">&#247</option>
-        </select>
+        <button class='operator' data-operator='+'>+</button>
+        <button class='operator' data-operator='-'>-</button>
+        <button class='operator' data-operator='*'>&times</button>
+        <button class='operator' data-operator='/'>&#247</button>
         <input type="number" id="secondNumIn" placeholder="0">
         <button id="equalsBtn">=</button>
         <button id="clearBtn">C</button>
     </div>
     <div id=mathoutput>
+        <p>Results from last equation on top:</p>
         <ul id=calculationsOut></ul>
     </div>
 </body>

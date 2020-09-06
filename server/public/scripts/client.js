@@ -6,6 +6,9 @@ function onReady() {
     console.log('in onReady');
     $(document).on('click', '#equalsBtn', addEquation);
     $(document).on('click', '#clearBtn', clearInput);
+    // 1 lines added below
+    $(document).on('click', '.operator', addOperator);
+
     getEquation();
 } // end onReady
 
@@ -16,14 +19,25 @@ function clearInput() {
     $('#secondNumIn').val('');
 } // end clearInput
 
+function addOperator() {
+    console.log('value of data', $(this).data('operator'));
+    equationToSend.operator = $(this).data('operator');
+}
+
+
+
 function addEquation() {
     console.log('in addEquation');
-    /*const*/
+    // added 2 lines below
+    equationToSend.firstNum = $('#firstNumIn').val();
+    equationToSend.secondNum = $('#secondNumIn').val();
+
+    /*
     equationToSend = {
         firstNum: $('#firstNumIn').val(),
         operator: $('#operatorIn ').val(),
         secondNum: $('#secondNumIn').val()
-    }
+    }*/
     console.log('sending', equationToSend);
     $('#firstNumIn').val('');
     $('#secondNumIn').val('');

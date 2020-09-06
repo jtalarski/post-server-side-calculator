@@ -28,12 +28,6 @@ ul> :first-child {
     font: 1.5em
 }
 
-#mathOutput {
-    background-color: white;
-    margin: 0;
-    padding: 0;
-}
-
 ul {
     background-color: white;
 }

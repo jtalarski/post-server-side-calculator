@@ -32,8 +32,10 @@ app.post('/calculator', (req, res) => {
             calcSolution = Number(newCalculation.firstNum) + Number(newCalculation.secondNum);
         } else if (newCalculation.operator === '-') {
             calcSolution = Number(newCalculation.firstNum) - Number(newCalculation.secondNum);
-        } else if (newCalculation.operator === 'x') {
+        } else if (newCalculation.operator === '*') {
             calcSolution = Number(newCalculation.firstNum) * Number(newCalculation.secondNum);
+
+
         } else if (newCalculation.operator === '/') {
             calcSolution = Number(newCalculation.firstNum) / Number(newCalculation.secondNum);
         } else {
